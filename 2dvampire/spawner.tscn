@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://dhdoyhr88772k"]
+
+[ext_resource type="Script" path="res://2dvampire/spawner.gd" id="1_84vvi"]
+[ext_resource type="PackedScene" uid="uid://j6tdykupqae2" path="res://2dvampire/enemy.tscn" id="2_pwvlj"]
+[ext_resource type="Script" path="res://2dvampire/EnemyType.gd" id="3_1bjrr"]
+[ext_resource type="Resource" uid="uid://bjbvm8g7aw0mx" path="res://2dvampire/Resources/Enemies/Cube.tres" id="4_bc58k"]
+[ext_resource type="Resource" uid="uid://bclil5tqu3g11" path="res://2dvampire/Resources/Enemies/Eye.tres" id="5_f5mnc"]
+[ext_resource type="Resource" uid="uid://pup73i4hx71m" path="res://2dvampire/Resources/Enemies/EyeGhost.tres" id="6_gmvso"]
+[ext_resource type="Resource" uid="uid://cl2pqh7ddi6pg" path="res://2dvampire/Resources/Enemies/EyeLegs.tres" id="7_4ubs7"]
+[ext_resource type="Resource" uid="uid://cqfikqr8wg2ar" path="res://2dvampire/Resources/Enemies/Triple.tres" id="8_3oowr"]
+
+[node name="Spawner" type="Node2D"]
+script = ExtResource("1_84vvi")
+enemy = ExtResource("2_pwvlj")
+enemy_types = Array[ExtResource("3_1bjrr")]([ExtResource("4_bc58k"), ExtResource("5_f5mnc"), ExtResource("6_gmvso"), ExtResource("7_4ubs7"), ExtResource("8_3oowr")])
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -21.0
+offset_right = 21.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Minute" type="Label" parent="CanvasLayer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 50
+text = "0"
+
+[node name="Label2" type="Label" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 50
+text = ":"
+
+[node name="Second" type="Label" parent="CanvasLayer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 50
+text = "00"
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Pattern" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="Elite" type="Timer" parent="."]
+wait_time = 9.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Pattern" to="." method="_on_pattern_timeout"]
+[connection signal="timeout" from="Elite" to="." method="_on_elite_timeout"]

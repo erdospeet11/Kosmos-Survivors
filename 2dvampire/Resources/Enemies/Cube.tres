@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://bjbvm8g7aw0mx"]
+
+[ext_resource type="Script" path="res://2dvampire/EnemyType.gd" id="1_e8qeq"]
+[ext_resource type="Texture2D" uid="uid://bcsm4dpvi5ogt" path="res://2dvampire/RPG Battlers 3/2 v1.png" id="2_hnlh2"]
+
+[resource]
+script = ExtResource("1_e8qeq")
+title = "Cube"
+texture = ExtResource("2_hnlh2")
+health = 0.0
+damage = 1.0
