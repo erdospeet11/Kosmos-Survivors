@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Gem" load_steps=3 format=3 uid="uid://ccgisjhf8b4b5"]
+
+[ext_resource type="Texture2D" uid="uid://cfn5te7itfg8m" path="res://2dvampire/purple_gem.png" id="1_uasw1"]
+[ext_resource type="Script" path="res://Gem.gd" id="2_j8kwd"]
+
+[resource]
+script = ExtResource("2_j8kwd")
+XP = 1.0
+title = "Purple Gem"
+icon = ExtResource("1_uasw1")
+description = "Gains Experience Points."

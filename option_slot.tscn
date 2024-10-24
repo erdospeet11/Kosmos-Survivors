@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://qg8axmnorvy6"]
+
+[ext_resource type="Texture2D" uid="uid://cacn76n5hnacy" path="res://2dvampire/Icon-Magic_Wand2.png" id="1_xtnkk"]
+[ext_resource type="Script" path="res://option_slot.gd" id="2_8hk7j"]
+[ext_resource type="Texture2D" uid="uid://u3p7y6s4i186" path="res://2dvampire/GUI.png" id="3_guxbk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hsxg4"]
+atlas = ExtResource("3_guxbk")
+region = Rect2(49, 97, 30, 30)
+
+[node name="OptionSlot" type="TextureButton"]
+custom_minimum_size = Vector2(315, 40)
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 1
+texture_normal = ExtResource("1_xtnkk")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("2_8hk7j")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 8.0
+offset_right = 85.0
+offset_bottom = 31.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Lvl 2"
+
+[node name="Description" type="Label" parent="."]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 8.0
+offset_right = 309.0
+offset_bottom = 31.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "test"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+show_behind_parent = true
+custom_minimum_size = Vector2(315, 40)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("AtlasTexture_hsxg4")
+region_rect = Rect2(0, 0, 30, 30)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

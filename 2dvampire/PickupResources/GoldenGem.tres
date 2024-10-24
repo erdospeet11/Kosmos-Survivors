@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Gem" load_steps=3 format=3 uid="uid://w7yhiwfrlly7"]
+
+[ext_resource type="Texture2D" uid="uid://cjgqc1ehp5j7w" path="res://2dvampire/golden_gem.png" id="1_jwu6c"]
+[ext_resource type="Script" path="res://Gem.gd" id="2_a5b2g"]
+
+[resource]
+script = ExtResource("2_a5b2g")
+XP = 2.0
+title = "Gold Gem"
+icon = ExtResource("1_jwu6c")
+description = "Gains Experience"

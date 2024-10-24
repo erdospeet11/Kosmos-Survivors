@@ -1,11 +1,14 @@
-[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://cqfikqr8wg2ar"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=5 format=3 uid="uid://cqfikqr8wg2ar"]
 
 [ext_resource type="Script" path="res://2dvampire/EnemyType.gd" id="1_vt1l6"]
+[ext_resource type="Script" path="res://PickupResource.gd" id="1_xldda"]
 [ext_resource type="Texture2D" uid="uid://bvyr8mw8bpjdw" path="res://2dvampire/RPG Battlers 3/4 v1.png" id="2_81vlc"]
+[ext_resource type="Resource" uid="uid://w7yhiwfrlly7" path="res://2dvampire/PickupResources/GoldenGem.tres" id="2_pm8xd"]
 
 [resource]
 script = ExtResource("1_vt1l6")
 title = "Triple"
 texture = ExtResource("2_81vlc")
-health = 0.0
+health = 5.0
 damage = 5.0
+drops = Array[ExtResource("1_xldda")]([ExtResource("2_pm8xd")])

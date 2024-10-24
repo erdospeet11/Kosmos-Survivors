@@ -1,11 +1,14 @@
-[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://bclil5tqu3g11"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=5 format=3 uid="uid://bclil5tqu3g11"]
 
 [ext_resource type="Script" path="res://2dvampire/EnemyType.gd" id="1_5ti86"]
+[ext_resource type="Script" path="res://PickupResource.gd" id="1_neip4"]
+[ext_resource type="Resource" uid="uid://ccgisjhf8b4b5" path="res://2dvampire/PickupResources/PurpleGem.tres" id="2_1qfj7"]
 [ext_resource type="Texture2D" uid="uid://bspjm5nkwucvw" path="res://2dvampire/RPG Battlers 3/1 v1.png" id="2_p5wnh"]
 
 [resource]
 script = ExtResource("1_5ti86")
 title = "Eye"
 texture = ExtResource("2_p5wnh")
-health = 0.0
+health = 2.0
 damage = 2.0
+drops = Array[ExtResource("1_neip4")]([ExtResource("2_1qfj7")])
