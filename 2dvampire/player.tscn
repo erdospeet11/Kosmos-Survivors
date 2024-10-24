@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://gbc32pmhbacl"]
+[gd_scene load_steps=25 format=3 uid="uid://gbc32pmhbacl"]
 
 [ext_resource type="Script" path="res://2dvampire/player.gd" id="1_58bru"]
 [ext_resource type="PackedScene" uid="uid://bvme7pl41obee" path="res://2dvampire/slot.tscn" id="2_cg20r"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cb603gca6e0vp" path="res://2dvampire/under_xp_over.png" id="5_dgcmg"]
 [ext_resource type="Texture2D" uid="uid://crscxsdioih5a" path="res://2dvampire/progress_xp_bar.png" id="6_kkj3t"]
 [ext_resource type="Script" path="res://2dvampire/options.gd" id="7_gcvfl"]
+[ext_resource type="Texture2D" uid="uid://b8gpfgarxvuka" path="res://2dvampire/2D characters/Drakula/Drakula_SpriteSheet.png" id="10_30q2t"]
 
 [sub_resource type="Gradient" id="Gradient_gmdxy"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.407843)
@@ -31,15 +32,67 @@ color_ramp = SubResource("GradientTexture1D_r7ehk")
 atlas = ExtResource("3_wmn1o")
 region = Rect2(0, 96, 48, 33)
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xncqs"]
-size = Vector2(20, 20)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0w02s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uvvxu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fkwd6"]
 radius = 50.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytjb3"]
+atlas = ExtResource("10_30q2t")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pog5"]
+atlas = ExtResource("10_30q2t")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrp0u"]
+atlas = ExtResource("10_30q2t")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ygqcj"]
+atlas = ExtResource("10_30q2t")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aa6qe"]
+atlas = ExtResource("10_30q2t")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d03qn"]
+atlas = ExtResource("10_30q2t")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_okb1o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ytjb3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3pog5")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrp0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ygqcj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aa6qe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d03qn")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 4.0
+}]
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_58bru")
@@ -151,10 +204,6 @@ weapons = NodePath("../Weapons")
 particles = NodePath("../GPUParticles2D")
 panel = NodePath("../Panel")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0, 1, 1, 1)
-texture = SubResource("PlaceholderTexture2D_xncqs")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_0w02s")
 
@@ -192,6 +241,11 @@ collision_mask = 4
 [node name="Magnet" type="CollisionShape2D" parent="Magnet"]
 unique_name_in_owner = true
 shape = SubResource("CircleShape2D_fkwd6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_okb1o")
+animation = &"idle"
+frame_progress = 0.784704
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

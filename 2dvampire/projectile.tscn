@@ -9,7 +9,7 @@ size = Vector2(10, 10)
 size = Vector2(10, 10)
 
 [sub_resource type="Gradient" id="Gradient_5faju"]
-colors = PackedColorArray(0.974, 0, 1, 1, 0, 0, 1, 1)
+colors = PackedColorArray(0.972549, 0, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_v2mch"]
 gradient = SubResource("Gradient_5faju")
@@ -43,6 +43,7 @@ collision_mask = 2
 script = ExtResource("1_n6iox")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
 texture = SubResource("PlaceholderTexture2D_j707l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

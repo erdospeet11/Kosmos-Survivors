@@ -37,6 +37,8 @@ var level : int = 1:
 		elif level >= 7:
 			%XP.max_value = 40
 
+@onready var player_sprite = $AnimatedSprite2D
+
 func _physics_process(delta : float):
 	if is_instance_valid(nearest_enemy):
 		nearest_enemy_distance = nearest_enemy.separation
@@ -46,6 +48,17 @@ func _physics_process(delta : float):
 		nearest_enemy = null
 		
 	velocity = Input.get_vector("left", "right", "up", "down") * movement_speed
+	
+	if velocity != Vector2.ZERO:
+		if velocity.x < 0:
+			player_sprite.flip_h = true  # Flip when moving left
+		elif velocity.x > 0:
+			player_sprite.flip_h = false # Do not flip when moving right
+		player_sprite.play("walk")
+	else:
+		player_sprite.play("idle")
+		
+	
 	move_and_collide(velocity * delta)
 	check_XP()
 	health += recovery * delta
