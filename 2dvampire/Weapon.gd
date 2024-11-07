@@ -1,8 +1,5 @@
-extends Resource
+extends Item
 class_name Weapon
-
-@export var title : String
-@export var texture : Texture2D
 
 @export var damage : float
 @export var cooldown : float
@@ -11,11 +8,16 @@ class_name Weapon
 @export var projectile_node : PackedScene = preload("res://2dvampire/projectile.tscn")
 
 @export var upgrades : Array[Upgrade]
-var level = 1
+@export var item_needed : PassiveItem
+@export var evolution : Weapon
+@export var sound : AudioStream
+
+var slot
 
 func activate(_source, _target, _scene_tree):
 	pass
 
+## Function determines if a weapon is upgradable
 func is_upgradable() -> bool:
 	if level <= upgrades.size():
 		return true
@@ -31,3 +33,8 @@ func upgrade_item():
 	cooldown += upgrade.cooldown
 	
 	level += 1
+
+func max_level_reached():
+	if upgrades.size()+1 == level and upgrades.size() != 0:
+		return true
+	return false

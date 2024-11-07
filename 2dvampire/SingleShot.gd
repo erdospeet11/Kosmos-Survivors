@@ -2,9 +2,11 @@ extends Weapon
 class_name SingleShot
 
 func shoot(source, target, scene_tree):
-	if target == null:
+	if target == null or scene_tree.paused == true:
 		return
 	
+	SoundManager.play_sfx(sound)
+	print(sound)
 	var projectile = projectile_node.instantiate()
 	
 	projectile.position = source.position
@@ -12,6 +14,7 @@ func shoot(source, target, scene_tree):
 	projectile.speed = speed
 	projectile.source = source
 	projectile.direction = (target.position - source.position).normalized()
+	projectile.find_child("Sprite2D").texture = texture
 	
 	scene_tree.current_scene.add_child(projectile)
 	
@@ -19,6 +22,10 @@ func activate(source, target, scene_tree):
 	shoot(source, target, scene_tree)
 
 func upgrade_item():
+	if max_level_reached():
+		slot.item = evolution
+		return
+	
 	if not is_upgradable():
 		return
 		

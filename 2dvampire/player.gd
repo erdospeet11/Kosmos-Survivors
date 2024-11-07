@@ -9,7 +9,7 @@ var max_health : float = 100:
 	set(value):
 		max_health = value
 		%Health.max_value = value
-var recovery : float = 0
+var recovery : float = 1
 var armor : float = 0
 var might : float = 1.0
 var area : float = 0
@@ -18,8 +18,13 @@ var magnet : float = 0:
 		magnet = value
 		%Magnet.shape.radius = 50 + value
 var growth : float = 1
-var nearest_enemy : CharacterBody2D
+var nearest_enemy
 var nearest_enemy_distance : float = 150 + area
+
+var gold : int = 0:
+	set(value):
+		gold = value
+		%Gold.text = "Gold : " + str(value)
 
 var XP : int = 0:
 	set(value):
@@ -74,7 +79,7 @@ func _on_timer_timeout() -> void:
 	%Collision.set_deferred("disabled", true)
 	%Collision.set_deferred("disabled", false)
 	
-func gain_XP(amount):
+func gain_XP(amount : int):
 	XP += amount * growth
 	total_XP += amount * growth
 
@@ -86,3 +91,9 @@ func check_XP():
 func _on_magnet_area_entered(area: Area2D) -> void:
 	if area.has_method("follow"):
 		area.follow(self)
+
+func gain_gold(amount : int) -> void:
+	gold += amount
+	
+func open_chest():
+	$"UI/Chest UI".open()

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Health" load_steps=4 format=3 uid="uid://wyrpuhe5ua52"]
+
+[ext_resource type="Texture2D" uid="uid://ckdkwkxysjc2m" path="res://2dvampire/cherry.png" id="1_w27ta"]
+[ext_resource type="Script" path="res://Health.gd" id="2_spmjf"]
+[ext_resource type="AudioStream" uid="uid://81kvmhbrsyaj" path="res://2dvampire/Sounds/pickup.wav" id="3_s2rne"]
+
+[resource]
+script = ExtResource("2_spmjf")
+amount = 20
+title = "Cherry"
+icon = ExtResource("1_w27ta")
+description = "+20 Health"
+sound = ExtResource("3_s2rne")

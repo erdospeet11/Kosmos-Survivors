@@ -1,9 +1,15 @@
-[gd_scene load_steps=9 format=4 uid="uid://domjuy7np5054"]
+[gd_scene load_steps=15 format=4 uid="uid://domjuy7np5054"]
 
 [ext_resource type="PackedScene" uid="uid://gbc32pmhbacl" path="res://2dvampire/player.tscn" id="1_gl6wq"]
 [ext_resource type="Texture2D" uid="uid://bcysv0q7gmvbg" path="res://2dvampire/TopDownFantasy-Forest/Tiles/Tileset.png" id="1_q5dhj"]
 [ext_resource type="Texture2D" uid="uid://dgv4q5kvtsiwp" path="res://2dvampire/TopDownFantasy-Forest/Decorations/Decorations.png" id="2_1hl16"]
 [ext_resource type="PackedScene" uid="uid://dhdoyhr88772k" path="res://2dvampire/spawner.tscn" id="2_cfek6"]
+[ext_resource type="PackedScene" uid="uid://bprvmvuygpudy" path="res://2dvampire/PickupResources/destructible.tscn" id="5_04n64"]
+[ext_resource type="Script" path="res://PickupResource.gd" id="6_kmpvu"]
+[ext_resource type="Resource" uid="uid://bfvnfjtngxhi7" path="res://2dvampire/PickupResources/Gold.tres" id="7_h5qm8"]
+[ext_resource type="Resource" uid="uid://wyrpuhe5ua52" path="res://2dvampire/PickupResources/Cherry.tres" id="7_hxe5b"]
+[ext_resource type="Resource" uid="uid://2xb7n820sb7e" path="res://2dvampire/PickupResources/Vacuum.tres" id="7_raqs3"]
+[ext_resource type="Resource" uid="uid://dmiehnfnk7lmt" path="res://2dvampire/PickupResources/Death.tres" id="8_wn2jx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1ksgc"]
 texture = ExtResource("1_q5dhj")
@@ -46,3 +52,11 @@ position = Vector2(484, 324)
 
 [node name="Spawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_cfek6")]
 player = NodePath("../Player")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.361239, 0.368936, 0.403018, 1)
+blend_mode = 2
+
+[node name="Destructible" parent="." instance=ExtResource("5_04n64")]
+position = Vector2(171, 90)
+drops = Array[ExtResource("6_kmpvu")]([ExtResource("7_h5qm8"), ExtResource("7_hxe5b"), ExtResource("7_raqs3"), ExtResource("8_wn2jx")])

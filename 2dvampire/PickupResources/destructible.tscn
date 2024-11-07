@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=3 uid="uid://bprvmvuygpudy"]
+
+[ext_resource type="Texture2D" uid="uid://be86ybwhbq8yn" path="res://2dvampire/vase.png" id="1_wfqit"]
+[ext_resource type="Script" path="res://2dvampire/PickupResources/destructible.gd" id="2_36sra"]
+[ext_resource type="Script" path="res://PickupResource.gd" id="3_1j515"]
+[ext_resource type="Resource" uid="uid://2xb7n820sb7e" path="res://2dvampire/PickupResources/Vacuum.tres" id="6_wv8hs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_knhe7"]
+radius = 7.0
+
+[sub_resource type="Gradient" id="Gradient_rsbsq"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uprln"]
+gradient = SubResource("Gradient_rsbsq")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.85, 0.15)
+
+[node name="Destructible" type="Sprite2D"]
+texture = ExtResource("1_wfqit")
+script = ExtResource("2_36sra")
+drops = Array[ExtResource("3_1j515")]([ExtResource("6_wv8hs")])
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_knhe7")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(5, 5)
+color = Color(1, 1, 0, 1)
+texture = SubResource("GradientTexture2D_uprln")

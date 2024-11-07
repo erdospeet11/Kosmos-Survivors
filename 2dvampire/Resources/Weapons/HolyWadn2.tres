@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="SingleShot" load_steps=6 format=3 uid="uid://bjynskr5titit"]
+
+[ext_resource type="PackedScene" uid="uid://btm0mt7un6ghn" path="res://2dvampire/projectile.tscn" id="1_qv7kq"]
+[ext_resource type="Script" path="res://2dvampire/SingleShot.gd" id="2_ystax"]
+[ext_resource type="Texture2D" uid="uid://cpi1rwxtx8a4n" path="res://2dvampire/Icon-Holy_Wand2.png" id="3_soin1"]
+[ext_resource type="Script" path="res://Upgrade.gd" id="4_3g8p4"]
+[ext_resource type="Texture2D" uid="uid://ca03iy5bg2x4p" path="res://2dvampire/holy-wand-icon.png" id="4_bj4br"]
+
+[resource]
+script = ExtResource("2_ystax")
+damage = 10.0
+cooldown = 0.1
+speed = 500.0
+projectile_node = ExtResource("1_qv7kq")
+upgrades = Array[ExtResource("4_3g8p4")]([])
+title = "Holy Wand 2"
+icon = ExtResource("3_soin1")
+texture = ExtResource("4_bj4br")

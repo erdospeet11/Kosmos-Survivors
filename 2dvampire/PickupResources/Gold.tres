@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Gold" load_steps=4 format=3 uid="uid://bfvnfjtngxhi7"]
+
+[ext_resource type="Texture2D" uid="uid://rxi7bt175i63" path="res://2dvampire/gold.png" id="1_lnera"]
+[ext_resource type="Script" path="res://Gold.gd" id="2_pdfmv"]
+[ext_resource type="AudioStream" uid="uid://81kvmhbrsyaj" path="res://2dvampire/Sounds/pickup.wav" id="3_ookni"]
+
+[resource]
+script = ExtResource("2_pdfmv")
+gold = 5
+title = "Gold"
+icon = ExtResource("1_lnera")
+description = "+5 Gold"
+sound = ExtResource("3_ookni")

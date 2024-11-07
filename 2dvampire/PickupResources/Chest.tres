@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Chest" load_steps=5 format=3 uid="uid://n7wqxfucufvx"]
+
+[ext_resource type="Texture2D" uid="uid://df7xgh4qh4jl8" path="res://2dvampire/Fantasy RPG (Toony) 32x32.png" id="1_tknng"]
+[ext_resource type="Script" path="res://ChestResource.gd" id="2_nx71d"]
+[ext_resource type="AudioStream" uid="uid://81kvmhbrsyaj" path="res://2dvampire/Sounds/pickup.wav" id="3_0kftf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eljr0"]
+atlas = ExtResource("1_tknng")
+region = Rect2(96, 128, 32, 32)
+
+[resource]
+script = ExtResource("2_nx71d")
+title = "Chest"
+icon = SubResource("AtlasTexture_eljr0")
+description = ""
+sound = ExtResource("3_0kftf")

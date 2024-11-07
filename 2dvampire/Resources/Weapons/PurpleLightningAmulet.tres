@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Lightning" load_steps=7 format=3 uid="uid://c6x7e21smxi4r"]
+
+[ext_resource type="Texture2D" uid="uid://bsbx4mwsu8av0" path="res://2dvampire/puprle_lightning_amulet.png" id="1_rqchl"]
+[ext_resource type="PackedScene" uid="uid://btm0mt7un6ghn" path="res://2dvampire/projectile.tscn" id="2_s2jtk"]
+[ext_resource type="Script" path="res://Lightning.gd" id="3_7ast3"]
+[ext_resource type="AudioStream" uid="uid://bnvv25oc0jcot" path="res://2dvampire/Sounds/lightning.wav" id="4_7ipx0"]
+[ext_resource type="Texture2D" uid="uid://c6b6v358bvs6k" path="res://2dvampire/lightning.png" id="5_aga16"]
+[ext_resource type="Script" path="res://Upgrade.gd" id="6_fqx22"]
+
+[resource]
+script = ExtResource("3_7ast3")
+amount = 7
+damage = 10.0
+cooldown = 2.0
+speed = 0.0
+projectile_node = ExtResource("2_s2jtk")
+upgrades = Array[ExtResource("6_fqx22")]([])
+sound = ExtResource("4_7ipx0")
+title = "Purple Lightning Amulet"
+icon = ExtResource("1_rqchl")
+texture = ExtResource("5_aga16")

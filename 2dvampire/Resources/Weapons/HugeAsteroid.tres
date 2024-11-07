@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Circular" load_steps=5 format=3 uid="uid://dkwkovxu7rske"]
+
+[ext_resource type="Texture2D" uid="uid://wro2na7ms8dy" path="res://2dvampire/mars.png" id="1_rw16a"]
+[ext_resource type="PackedScene" uid="uid://btm0mt7un6ghn" path="res://2dvampire/projectile.tscn" id="2_yglj6"]
+[ext_resource type="Script" path="res://CircularWeapon.gd" id="3_5taf4"]
+[ext_resource type="Script" path="res://Upgrade.gd" id="4_eqksk"]
+
+[resource]
+script = ExtResource("3_5taf4")
+angular_speed = 270
+radius = 75
+amount = 11
+damage = 10.0
+cooldown = 2.0
+speed = 0.0
+projectile_node = ExtResource("2_yglj6")
+upgrades = Array[ExtResource("4_eqksk")]([])
+title = "Huge Asteroid"
+icon = ExtResource("1_rw16a")
+texture = ExtResource("1_rw16a")

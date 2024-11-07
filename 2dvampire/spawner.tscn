@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dhdoyhr88772k"]
+[gd_scene load_steps=10 format=3 uid="uid://dhdoyhr88772k"]
 
 [ext_resource type="Script" path="res://2dvampire/spawner.gd" id="1_84vvi"]
 [ext_resource type="PackedScene" uid="uid://j6tdykupqae2" path="res://2dvampire/enemy.tscn" id="2_pwvlj"]
@@ -8,11 +8,13 @@
 [ext_resource type="Resource" uid="uid://pup73i4hx71m" path="res://2dvampire/Resources/Enemies/EyeGhost.tres" id="6_gmvso"]
 [ext_resource type="Resource" uid="uid://cl2pqh7ddi6pg" path="res://2dvampire/Resources/Enemies/EyeLegs.tres" id="7_4ubs7"]
 [ext_resource type="Resource" uid="uid://cqfikqr8wg2ar" path="res://2dvampire/Resources/Enemies/Triple.tres" id="8_3oowr"]
+[ext_resource type="PackedScene" uid="uid://bprvmvuygpudy" path="res://2dvampire/PickupResources/destructible.tscn" id="9_kmck1"]
 
 [node name="Spawner" type="Node2D"]
 script = ExtResource("1_84vvi")
 enemy = ExtResource("2_pwvlj")
 enemy_types = Array[ExtResource("3_1bjrr")]([ExtResource("4_bc58k"), ExtResource("5_f5mnc"), ExtResource("6_gmvso"), ExtResource("7_4ubs7"), ExtResource("8_3oowr")])
+destructible = ExtResource("9_kmck1")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -59,6 +61,11 @@ autostart = true
 wait_time = 9.0
 autostart = true
 
+[node name="Destructible" type="Timer" parent="."]
+wait_time = 9.0
+autostart = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Pattern" to="." method="_on_pattern_timeout"]
 [connection signal="timeout" from="Elite" to="." method="_on_elite_timeout"]
+[connection signal="timeout" from="Destructible" to="." method="_on_destructible_timeout"]

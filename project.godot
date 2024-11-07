@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="cosmic-survivors"
+config/version="0.0.1"
 run/main_scene="res://2dvampire/main.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+SoundManager="*res://2dvampire/sound_manager.tscn"
 
 [display]
 
@@ -22,6 +27,12 @@ window/vsync/vsync_mode=0
 [dotnet]
 
 project/assembly_name="cosmic-survivors"
+
+[file_customization]
+
+folder_colors={
+"res://2dvampire/Others/": "purple"
+}
 
 [input]
 

@@ -72,6 +72,8 @@ func drop_item():
 		return
 	
 	var item = type.drops.pick_random()
+	if elite:
+		item = load("res://2dvampire/PickupResources/Chest.tres")
 	
 	var item_to_drop = drop.instantiate()
 	
@@ -80,4 +82,5 @@ func drop_item():
 	item_to_drop.player_reference = player_reference
 	
 	get_tree().current_scene.call_deferred("add_child",item_to_drop)
+	queue_free()
 	

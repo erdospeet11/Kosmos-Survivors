@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcu7a03pwbgn1"]
+
+[ext_resource type="Script" path="res://2dvampire/2D characters/sound_manager.gd" id="1_lwlak"]
+
+[node name="SoundManager" type="Node2D"]
+script = ExtResource("1_lwlak")

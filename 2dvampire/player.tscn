@@ -1,15 +1,22 @@
-[gd_scene load_steps=25 format=3 uid="uid://gbc32pmhbacl"]
+[gd_scene load_steps=50 format=3 uid="uid://gbc32pmhbacl"]
 
 [ext_resource type="Script" path="res://2dvampire/player.gd" id="1_58bru"]
 [ext_resource type="PackedScene" uid="uid://bvme7pl41obee" path="res://2dvampire/slot.tscn" id="2_cg20r"]
 [ext_resource type="Texture2D" uid="uid://cfn5te7itfg8m" path="res://2dvampire/purple_gem.png" id="2_gxlkr"]
+[ext_resource type="Texture2D" uid="uid://b1kfb6bvs1cry" path="res://2dvampire/ui.tres" id="3_3vgry"]
 [ext_resource type="Resource" uid="uid://hrpslgxhewmu" path="res://2dvampire/Resources/Weapons/MagicWand.tres" id="3_c4dj6"]
-[ext_resource type="Texture2D" uid="uid://u3p7y6s4i186" path="res://2dvampire/GUI.png" id="3_wmn1o"]
 [ext_resource type="Texture2D" uid="uid://b8a5y358xkdp8" path="res://2dvampire/under_xp_bar.png" id="4_b4sea"]
 [ext_resource type="Texture2D" uid="uid://cb603gca6e0vp" path="res://2dvampire/under_xp_over.png" id="5_dgcmg"]
+[ext_resource type="PackedScene" uid="uid://bovrcvmjc1vd3" path="res://2dvampire/Resources/Passive Items/passive_slot.tscn" id="5_hb25r"]
 [ext_resource type="Texture2D" uid="uid://crscxsdioih5a" path="res://2dvampire/progress_xp_bar.png" id="6_kkj3t"]
 [ext_resource type="Script" path="res://2dvampire/options.gd" id="7_gcvfl"]
+[ext_resource type="Resource" uid="uid://dscyvkl3crwd8" path="res://2dvampire/Resources/Passive Items/Magnet.tres" id="7_sc3o5"]
+[ext_resource type="Resource" uid="uid://d2kq47v83f0so" path="res://2dvampire/Resources/Weapons/LightningAmulet.tres" id="7_wgls6"]
+[ext_resource type="Resource" uid="uid://bbfdal7c5cf7a" path="res://2dvampire/Resources/Passive Items/Recovery.tres" id="9_q7h3n"]
+[ext_resource type="Resource" uid="uid://cjks2m0gq5ned" path="res://2dvampire/Resources/Passive Items/Area.tres" id="9_yigkn"]
 [ext_resource type="Texture2D" uid="uid://b8gpfgarxvuka" path="res://2dvampire/2D characters/Drakula/Drakula_SpriteSheet.png" id="10_30q2t"]
+[ext_resource type="Script" path="res://2dvampire/chest_ui.gd" id="12_4fi6e"]
+[ext_resource type="Texture2D" uid="uid://df7xgh4qh4jl8" path="res://2dvampire/Fantasy RPG (Toony) 32x32.png" id="12_ravci"]
 
 [sub_resource type="Gradient" id="Gradient_gmdxy"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.407843)
@@ -28,13 +35,126 @@ scale_min = 0.5
 scale_max = 0.5
 color_ramp = SubResource("GradientTexture1D_r7ehk")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ooo18"]
-atlas = ExtResource("3_wmn1o")
-region = Rect2(0, 96, 48, 33)
+[sub_resource type="AtlasTexture" id="AtlasTexture_4pfk7"]
+atlas = ExtResource("12_ravci")
+region = Rect2(96, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trabt"]
+atlas = ExtResource("12_ravci")
+region = Rect2(96, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1j5al"]
+atlas = ExtResource("12_ravci")
+region = Rect2(128, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qccse"]
+atlas = ExtResource("12_ravci")
+region = Rect2(160, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmpf7"]
+atlas = ExtResource("12_ravci")
+region = Rect2(96, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ds85w"]
+atlas = ExtResource("12_ravci")
+region = Rect2(128, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpbtv"]
+atlas = ExtResource("12_ravci")
+region = Rect2(160, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w27c6"]
+atlas = ExtResource("12_ravci")
+region = Rect2(96, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ojhh"]
+atlas = ExtResource("12_ravci")
+region = Rect2(128, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0a7w0"]
+atlas = ExtResource("12_ravci")
+region = Rect2(160, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_asanl"]
+atlas = ExtResource("12_ravci")
+region = Rect2(96, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qv7x6"]
+atlas = ExtResource("12_ravci")
+region = Rect2(128, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6mt0"]
+atlas = ExtResource("12_ravci")
+region = Rect2(160, 224, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ns274"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4pfk7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trabt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1j5al")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qccse")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmpf7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ds85w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kpbtv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w27c6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ojhh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0a7w0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_asanl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qv7x6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6mt0")
+}],
+"loop": false,
+"name": &"open",
+"speed": 24.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lwj73"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jcc5a"]
+bg_color = Color(0.293935, 0.148739, 4.81308e-08, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.890196, 0.521569, 0.117647, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0w02s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uvvxu"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bffgt"]
+blend_mode = 1
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fkwd6"]
 radius = 50.0
@@ -94,10 +214,28 @@ animations = [{
 "speed": 4.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_vu6nt"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_o8jxg"]
+gradient = SubResource("Gradient_vu6nt")
+fill = 1
+fill_from = Vector2(0.5, 0.478632)
+fill_to = Vector2(0.82906, 0.188034)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_58bru")
 
 [node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Gold" type="Label" parent="UI"]
+unique_name_in_owner = true
+offset_left = 801.0
+offset_top = 34.0
+offset_right = 892.0
+offset_bottom = 57.0
+text = "Gold: "
+horizontal_alignment = 2
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="UI"]
 process_mode = 3
@@ -107,7 +245,7 @@ process_material = SubResource("ParticleProcessMaterial_i53ex")
 texture = ExtResource("2_gxlkr")
 lifetime = 1.5
 
-[node name="Panel" type="NinePatchRect" parent="UI"]
+[node name="Level Up Panel" type="NinePatchRect" parent="UI"]
 process_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -120,14 +258,14 @@ offset_right = 163.5
 offset_bottom = 117.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("AtlasTexture_ooo18")
+texture = ExtResource("3_3vgry")
 region_rect = Rect2(0, 0, 48, 33)
 patch_margin_left = 7
 patch_margin_top = 7
 patch_margin_right = 7
 patch_margin_bottom = 7
 
-[node name="Label" type="Label" parent="UI/Panel"]
+[node name="Label" type="Label" parent="UI/Level Up Panel"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -146,13 +284,32 @@ offset_bottom = 72.0
 
 [node name="Slot" parent="UI/Weapons" instance=ExtResource("2_cg20r")]
 layout_mode = 2
-weapon = ExtResource("3_c4dj6")
+item = ExtResource("3_c4dj6")
 
 [node name="Slot2" parent="UI/Weapons" instance=ExtResource("2_cg20r")]
 layout_mode = 2
 
 [node name="Slot3" parent="UI/Weapons" instance=ExtResource("2_cg20r")]
 layout_mode = 2
+item = ExtResource("7_wgls6")
+
+[node name="PassiveItems" type="HBoxContainer" parent="UI"]
+offset_left = 16.0
+offset_top = 76.0
+offset_right = 144.0
+offset_bottom = 116.0
+
+[node name="PassiveSlot" parent="UI/PassiveItems" instance=ExtResource("5_hb25r")]
+layout_mode = 2
+item = ExtResource("7_sc3o5")
+
+[node name="PassiveSlot2" parent="UI/PassiveItems" instance=ExtResource("5_hb25r")]
+layout_mode = 2
+item = ExtResource("9_q7h3n")
+
+[node name="PassiveSlot3" parent="UI/PassiveItems" instance=ExtResource("5_hb25r")]
+layout_mode = 2
+item = ExtResource("9_yigkn")
 
 [node name="XP" type="TextureProgressBar" parent="UI"]
 unique_name_in_owner = true
@@ -185,7 +342,7 @@ offset_bottom = 35.0
 grow_horizontal = 0
 text = "Lv 1"
 
-[node name="Options" type="VBoxContainer" parent="UI" node_paths=PackedStringArray("weapons", "particles", "panel")]
+[node name="Options" type="VBoxContainer" parent="UI" node_paths=PackedStringArray("weapons", "passive_items", "particles", "panel")]
 unique_name_in_owner = true
 process_mode = 3
 anchors_preset = 8
@@ -201,8 +358,124 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("7_gcvfl")
 weapons = NodePath("../Weapons")
+passive_items = NodePath("../PassiveItems")
 particles = NodePath("../GPUParticles2D")
-panel = NodePath("../Panel")
+panel = NodePath("../Level Up Panel")
+
+[node name="Chest UI" type="NinePatchRect" parent="UI"]
+process_mode = 3
+custom_minimum_size = Vector2(300, 200)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.0
+offset_top = -64.0
+offset_right = 83.0
+offset_bottom = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_3vgry")
+region_rect = Rect2(0, 0, 48, 33)
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+script = ExtResource("12_4fi6e")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/Chest UI"]
+position = Vector2(150, 114)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_ns274")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Open" type="Button" parent="UI/Chest UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -44.0
+offset_right = 25.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lwj73")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jcc5a")
+text = "Open"
+
+[node name="Close" type="Button" parent="UI/Chest UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -44.0
+offset_right = 25.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lwj73")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jcc5a")
+text = "Close
+"
+
+[node name="Rewards" type="Control" parent="UI/Chest UI"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="UI/Chest UI/Rewards"]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 101.0
+offset_right = 77.0
+offset_bottom = 141.0
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="UI/Chest UI/Rewards"]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 38.0
+offset_right = 101.0
+offset_bottom = 78.0
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="UI/Chest UI/Rewards"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 26.0
+offset_right = 170.0
+offset_bottom = 66.0
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect4" type="TextureRect" parent="UI/Chest UI/Rewards"]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 44.0
+offset_right = 248.0
+offset_bottom = 84.0
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect5" type="TextureRect" parent="UI/Chest UI/Rewards"]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 103.0
+offset_right = 270.0
+offset_bottom = 143.0
+expand_mode = 1
+stretch_mode = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_0w02s")
@@ -217,14 +490,15 @@ shape = SubResource("RectangleShape2D_uvvxu")
 
 [node name="Health" type="ProgressBar" parent="."]
 unique_name_in_owner = true
+material = SubResource("CanvasItemMaterial_bffgt")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -14.0
-offset_top = -15.0
-offset_right = 14.0
-offset_bottom = -11.0
+offset_left = -28.0
+offset_top = -21.0
+offset_bottom = -17.0
 grow_horizontal = 2
+scale = Vector2(2, 2)
 value = 100.0
 show_percentage = false
 
@@ -247,6 +521,12 @@ sprite_frames = SubResource("SpriteFrames_okb1o")
 animation = &"idle"
 frame_progress = 0.784704
 
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 1, 0.478431, 1)
+texture = SubResource("GradientTexture2D_o8jxg")
+
+[connection signal="pressed" from="UI/Chest UI/Open" to="UI/Chest UI" method="_on_open_pressed"]
+[connection signal="pressed" from="UI/Chest UI/Close" to="UI/Chest UI" method="_on_close_pressed"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Magnet" to="." method="_on_magnet_area_entered"]

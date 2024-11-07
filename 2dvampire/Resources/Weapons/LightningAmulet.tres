@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="Lightning" load_steps=15 format=3 uid="uid://d2kq47v83f0so"]
+
+[ext_resource type="Texture2D" uid="uid://5wcywrn87s3u" path="res://2dvampire/lightning_amulet.png" id="1_afr18"]
+[ext_resource type="Resource" uid="uid://c6x7e21smxi4r" path="res://2dvampire/Resources/Weapons/PurpleLightningAmulet.tres" id="1_emxhe"]
+[ext_resource type="PackedScene" uid="uid://btm0mt7un6ghn" path="res://2dvampire/projectile.tscn" id="2_wrvyw"]
+[ext_resource type="Resource" uid="uid://cjks2m0gq5ned" path="res://2dvampire/Resources/Passive Items/Area.tres" id="3_frn01"]
+[ext_resource type="Script" path="res://Lightning.gd" id="3_tgy8l"]
+[ext_resource type="Texture2D" uid="uid://c6b6v358bvs6k" path="res://2dvampire/lightning.png" id="4_lvjjq"]
+[ext_resource type="AudioStream" uid="uid://bnvv25oc0jcot" path="res://2dvampire/Sounds/lightning.wav" id="4_wsrc0"]
+[ext_resource type="Script" path="res://Upgrade.gd" id="5_6tq42"]
+[ext_resource type="Script" path="res://LightningUpgrade.gd" id="7_liura"]
+
+[sub_resource type="Resource" id="Resource_ehbhb"]
+script = ExtResource("7_liura")
+amount = 1
+damage = 0.0
+cooldown = 0.0
+description = "+1 Strike"
+
+[sub_resource type="Resource" id="Resource_3gk2i"]
+script = ExtResource("7_liura")
+amount = 0
+damage = 0.0
+cooldown = -1.0
+description = "-1s Cooldown"
+
+[sub_resource type="Resource" id="Resource_j86qh"]
+script = ExtResource("7_liura")
+amount = 1
+damage = 0.0
+cooldown = 0.0
+description = "+1 Strike"
+
+[sub_resource type="Resource" id="Resource_xnpxn"]
+script = ExtResource("7_liura")
+amount = 0
+damage = 3.0
+cooldown = 0.0
+description = "+3 Damage"
+
+[sub_resource type="Resource" id="Resource_cro1d"]
+script = ExtResource("7_liura")
+amount = 0
+damage = 0.0
+cooldown = -1.0
+description = "-1s Cooldown"
+
+[resource]
+script = ExtResource("3_tgy8l")
+amount = 1
+damage = 2.0
+cooldown = 4.0
+speed = 0.0
+projectile_node = ExtResource("2_wrvyw")
+upgrades = Array[ExtResource("5_6tq42")]([SubResource("Resource_ehbhb"), SubResource("Resource_3gk2i"), SubResource("Resource_j86qh"), SubResource("Resource_xnpxn"), SubResource("Resource_cro1d")])
+item_needed = ExtResource("3_frn01")
+evolution = ExtResource("1_emxhe")
+sound = ExtResource("4_wsrc0")
+title = "Lightning Amulet"
+icon = ExtResource("1_afr18")
+texture = ExtResource("4_lvjjq")

@@ -1,10 +1,14 @@
-[gd_resource type="Resource" script_class="SingleShot" load_steps=11 format=3 uid="uid://hrpslgxhewmu"]
+[gd_resource type="Resource" script_class="SingleShot" load_steps=15 format=3 uid="uid://hrpslgxhewmu"]
 
 [ext_resource type="PackedScene" uid="uid://btm0mt7un6ghn" path="res://2dvampire/projectile.tscn" id="1_mei3n"]
+[ext_resource type="Resource" uid="uid://bjynskr5titit" path="res://2dvampire/Resources/Weapons/HolyWadn2.tres" id="1_wp15m"]
 [ext_resource type="Script" path="res://2dvampire/SingleShot.gd" id="2_t7whp"]
+[ext_resource type="Resource" uid="uid://dscyvkl3crwd8" path="res://2dvampire/Resources/Passive Items/Magnet.tres" id="2_wxon0"]
 [ext_resource type="Texture2D" uid="uid://cacn76n5hnacy" path="res://2dvampire/Icon-Magic_Wand2.png" id="3_i2v2u"]
 [ext_resource type="Script" path="res://Upgrade.gd" id="4_c88me"]
 [ext_resource type="Script" path="res://ProjectileUpgrade.gd" id="5_5an1h"]
+[ext_resource type="AudioStream" uid="uid://b7n01isqnhw6x" path="res://2dvampire/Sounds/zap.wav" id="5_kfu5m"]
+[ext_resource type="Texture2D" uid="uid://ccdc7s3kgh5xo" path="res://2dvampire/magic_wand_icon.png" id="7_mcfa2"]
 
 [sub_resource type="Resource" id="Resource_olrfe"]
 script = ExtResource("5_5an1h")
@@ -43,10 +47,14 @@ description = "-0.1s Cooldown"
 
 [resource]
 script = ExtResource("2_t7whp")
-title = "Magic Wand"
-texture = ExtResource("3_i2v2u")
 damage = 2.0
 cooldown = 0.75
 speed = 400.0
 projectile_node = ExtResource("1_mei3n")
 upgrades = Array[ExtResource("4_c88me")]([SubResource("Resource_olrfe"), SubResource("Resource_bwett"), SubResource("Resource_dblpw"), SubResource("Resource_tl6re"), SubResource("Resource_cpyv0")])
+item_needed = ExtResource("2_wxon0")
+evolution = ExtResource("1_wp15m")
+sound = ExtResource("5_kfu5m")
+title = "Magic Wand"
+icon = ExtResource("3_i2v2u")
+texture = ExtResource("7_mcfa2")
